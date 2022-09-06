@@ -23,11 +23,10 @@ def load_data(nrows):
 data_load_state = st.text('Loading data...')
 data = load_data(500)
 data_load_state.text("Done! (using st.cache)")
-st.dataframe(data)
+agree = st.sidebar.checkbox("Mostrar todos los datos ")
+if agree:
+    st.dataframe(data)
 
-if st.sidebar.checkbox("Show row data"): 
-    st.subheader("Raw data")
-    st.write(data)
 
 if st.sidebar.checkbox("Recorridos por hora"):
     st.subheader("Número de recorridos por hora")
